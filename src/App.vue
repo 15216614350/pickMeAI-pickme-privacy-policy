@@ -2,14 +2,14 @@
 const effectiveDate = '2025年9月24日'
 const contactEmail = 'kefu@aifindjob.fun'
 const contactAddress =
-  '上海市浦东新区张江高科技园区碧波路635号3号楼1001室'
+  '中国（上海）自由贸易试验区张衡路666弄1号楼203-3室'
 
 const sections = [
   {
     id: 'intro',
     title: null,
     paragraphs: [
-      '选我AI Tech Co., Ltd.（以下简称"选我AI"或"我们"）重视您的隐私。本隐私政策（以下简称"本政策"）解释了我们如何收集、使用、披露、保护和处理您在使用 选我AI 平台、网站、移动应用程序及相关服务（以下简称"服务"）时提供的信息。',
+      '上海伯乐选才科技有限公司（以下简称"选我AI"或"我们"）重视您的隐私。本隐私政策（以下简称"本政策"）解释了我们如何收集、使用、披露、保护和处理您在使用 选我AI 平台、网站、移动应用程序及相关服务（以下简称"服务"）时提供的信息。',
       '本政策适用于所有使用服务的用户（以下简称"您"或"用户"）。在使用服务前，请仔细阅读本政策。如果您不同意本政策，请勿使用服务。您的使用即表示您同意我们按照本政策处理您的信息。',
       '我们可能会不时更新本政策，更新后将在服务中发布通知。继续使用服务即表示您接受更新。',
     ],
@@ -47,6 +47,25 @@ const sections = [
         ],
         footer:
           '我们不会收集敏感个人信息，除非您自愿提供且必要（如健康相关信息用于特定职位匹配）。',
+      },
+      {
+        title: '1.4 基本功能所需授权信息',
+        paragraphs: [
+          '为实现向您提供我们产品及/或服务的基本功能，您须授权我们收集、使用的必要信息，包括：APP 收集设备 MAC 地址；极光一键登录 SDK 获取 Android ID、设备序列号，以及通讯录和短信（我们将明确其收集目的、方式与范围）。',
+          '当 App 运行中时，我们可能获取 IMEI、IMSI、SUPI、SUCI、WiFi 的 BSSID、设备 MAC 地址、软件安装列表、电话号码、通讯录、定位、短信、录音、相机、存储等权限相关信息。如您拒绝提供相应信息，您将无法正常使用我们的产品及/或服务。',
+        ],
+      },
+      {
+        title: '1.5 第三方 SDK（统计分析）',
+        paragraphs: [
+          '为实现了解我们产品的使用情况，我们接入阿里云移动统计服务 SDK。统计分析所收集的个人信息类型包括：设备信息（IMEI/MAC/Android ID/IDFA/OpenUDID/GUID/IP 地址/SIM 卡 IMSI 信息等）。',
+        ],
+      },
+      {
+        title: '1.6 音频功能',
+        paragraphs: [
+          '当您使用我们产品的音频相关功能服务时，您需要开放设备麦克风权限来进行音频输入（例如：进入模拟面试等功能）。在此过程中，我们会使用您的语音内容，识别您的语音以进行面试相关服务，语音识别使用阿里云的 TTS。',
+        ],
       },
     ],
   },
@@ -136,16 +155,6 @@ const sections = [
 
 <template>
   <div class="page">
-    <header class="header">
-      <div class="header-inner">
-        <div class="logo">
-          <span class="logo-mark">P</span>
-          <span class="logo-text">选我AI</span>
-        </div>
-        <div class="header-badge">隐私政策</div>
-      </div>
-    </header>
-
     <main class="main">
       <article class="policy">
         <header class="policy-header">
@@ -190,6 +199,13 @@ const sections = [
                 class="subsection"
               >
                 <h3 class="subsection-title">{{ sub.title }}</h3>
+                <p
+                  v-for="(para, i) in sub.paragraphs"
+                  :key="`${sub.title}-p-${i}`"
+                  class="paragraph"
+                >
+                  {{ para }}
+                </p>
                 <ul v-if="sub.items" class="list">
                   <li v-for="(item, i) in sub.items" :key="i">{{ item }}</li>
                 </ul>
